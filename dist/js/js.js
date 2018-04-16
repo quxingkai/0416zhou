@@ -1,0 +1,1 @@
+var myswiper=new Swiper(".page");new Swiper(".banner",{aotuplay:1e3,loop:!0});

@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title><link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/lib/swiper-3.4.2.min.css"><link rel="stylesheet" href="font/iconfont.css"><link rel="stylesheet" href="css/all.css"></head><body><div class="wrap"><header><span><i class="icon iconfont icon-yuyin"></i></span> <label for=""><i class="icon iconfont icon-fangdajing"></i><input type="text" placeholder="给你推荐好音乐"></label> <span><i class="icon iconfont icon-youhuiquan-geren-01"></i></span></header><nav><span class="bg">音乐<b></b></span> <span>视屏<b></b></span> <span>电台<b></b></span></nav><section><div class="swiper-container page"><div class="swiper-wrapper"><div class="swiper-slide page1"><div class="swiper-container banner"><div class="swiper-wrapper"><div class="swiper-slide"><img src="img/banner.png" alt=""></div><div class="swiper-slide"><img src="img/banner.png" alt=""></div><div class="swiper-slide"><img src="img/banner.png" alt=""></div></div></div><ol class="nav"><dl><dt><img src="img/pic1.png" alt=""></dt><dd>私人FM</dd></dl><dl><dt><img src="img/pic2.png" alt=""></dt><dd>私人FM</dd></dl><dl><dt><img src="img/pic3.png" alt=""></dt><dd>私人FM</dd></dl><dl><dt><img src="img/pic4.png" alt=""></dt><dd>私人FM</dd></dl></ol><div class="tit">推荐歌单</div><div class="list"></div></div><div class="swiper-slide page2">222</div><div class="swiper-slide page3">333</div></div></div></section><footer><dl><dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt><dd>发现音乐</dd></dl><dl><dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt><dd>发现音乐</dd></dl><dl><dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt><dd>我的音乐</dd></dl><dl><dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt><dd>我的音乐</dd></dl></footer></div><script src="js/lib/swiper-3.4.2.min.js"></script><script src="js/lib/jquery-2.1.1.min.js"></script><script src="js/js.js"></script><script>$('nav span').on('click',function(){
+            var ind = $(this).index();
+            $(this).addClass('bg').siblings().removeClass('bg');
+            myswiper.slideTo(ind)
+        });
+        $.ajax({
+            url:"data/data.json",
+            success:function(data){
+                var html = '';
+               data.list.forEach(function(v,i){
+                   html+=` <dl>
+                                    <dt><img src="${v.img}" alt=""></dt>
+                                    <dd>${v.scont}</dd>
+                        </dl>`
+               });
+               $('.list').html(html);
+            }
+        })</script></body></html>

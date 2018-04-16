@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/lib/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="font/iconfont.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/section.css"> -->
 </head>
 <body>
     <div class="wrap">
@@ -22,11 +24,68 @@
             <span>视屏<b></b></span>
             <span>电台<b></b></span>
         </nav>
-        <section></section>
-        <footer></footer>
+        <section>
+            <div class="swiper-container page">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page1">
+                        <div class="swiper-container banner">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="img/banner.png" alt=""></div>
+                                <div class="swiper-slide"><img src="img/banner.png" alt=""></div>
+                                <div class="swiper-slide"><img src="img/banner.png" alt=""></div>
+                            </div>
+                        </div>
+                        <ol class="nav">
+                            <dl>
+                                <dt><img src="img/pic1.png" alt=""></dt>
+                                <dd>私人FM</dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/pic2.png" alt=""></dt>
+                                <dd>私人FM</dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/pic3.png" alt=""></dt>
+                                <dd>私人FM</dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/pic4.png" alt=""></dt>
+                                <dd>私人FM</dd>
+                            </dl>
+                        </ol>
+                        <div class="tit">
+                            推荐歌单
+                        </div>
+                        <div class="list">
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide page2">222</div>
+                    <div class="swiper-slide page3">333</div>
+                </div>
+            </div>
+        </section>
+        <footer>
+           <dl>
+               <dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt>
+               <dd>发现音乐</dd>
+           </dl>
+           <dl>
+                <dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt>
+                <dd>发现音乐</dd>
+            </dl>
+            <dl>
+                    <dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt>
+                    <dd>我的音乐</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon iconfont icon-iconhuidaoshouye"></i></dt>
+                    <dd>我的音乐</dd>
+                </dl>
+        </footer>
     </div>
-    <script src="js/lib/jquery-2.1.1.min.js"></script>
     <script src="js/lib/swiper-3.4.2.min.js"></script>
+    <script src="js/lib/jquery-2.1.1.min.js"></script>
     <script src="js/js.js"></script>
     <script>
         $('nav span').on('click',function(){
@@ -37,7 +96,14 @@
         $.ajax({
             url:"data/data.json",
             success:function(data){
-                console.log(data);
+                var html = '';
+               data.list.forEach(function(v,i){
+                   html+=` <dl>
+                                    <dt><img src="${v.img}" alt=""></dt>
+                                    <dd>${v.cont}</dd>
+                        </dl>`
+               });
+               $('.list').html(html);
             }
         })
     </script>
