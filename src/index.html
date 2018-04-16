@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/lib/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
     <div class="wrap">
-        <header></header>
-        <nav></nav>
+        <header>
+          <span><i class="icon iconfont icon-yuyin"></i></span>
+          <label for=""><i class="icon iconfont icon-fangdajing"></i><input type="text" placeholder="给你推荐好音乐"></label>
+          <span><i class="icon iconfont icon-youhuiquan-geren-01"></i></span>
+        </header>
+        <nav>
+            <span class="bg">音乐<b></b></span>
+            <span>视屏<b></b></span>
+            <span>电台<b></b></span>
+        </nav>
         <section></section>
         <footer></footer>
     </div>
+    <script src="js/lib/jquery-2.1.1.min.js"></script>
+    <script src="js/lib/swiper-3.4.2.min.js"></script>
+    <script src="js/js.js"></script>
+    <script>
+        $('nav span').on('click',function(){
+            var ind = $(this).index();
+            $(this).addClass('bg').siblings().removeClass('bg');
+            myswiper.slideTo(ind)
+        });
+        $.ajax({
+            url:"data/data.json",
+            success:function(data){
+                console.log(data);
+            }
+        })
+    </script>
 </body>
 </html>
